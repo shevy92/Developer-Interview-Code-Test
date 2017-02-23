@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+   
+   <title>Frontend-Developer Code Test</title>
+   
+   <link rel="stylesheet" href="css/style.css">
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+   
+    <link type="text/css" rel="stylesheet" href="jsgrid/jsgrid.min.css" />
+    <link type="text/css" rel="stylesheet" href="jsgrid/jsgrid-theme.min.css" />
+    <script type="text/javascript" src="jsgrid/jsgrid.min.js"></script>
+    
+</head>
+
+<body>
+
+   <div id="header">
+      <h1>Welcome!</h1> 
+   </div>
+    
+
+    <div id="jsGrid"></div>
+
+    <script>
+        var clients = [
+            { "Name": "Otto Clay", "Age": 25, "Country": 1, "Address": "Ap #897-1459 Quam Avenue", "Married": false },
+            { "Name": "Connor Johnston", "Age": 45, "Country": 2, "Address": "Ap #370-4647 Dis Av.", "Married": true },
+            { "Name": "Lacey Hess", "Age": 29, "Country": 3, "Address": "Ap #365-8835 Integer St.", "Married": false },
+            { "Name": "Timothy Henson", "Age": 56, "Country": 1, "Address": "911-5143 Luctus Ave", "Married": true },
+            { "Name": "Ramona Benton", "Age": 32, "Country": 3, "Address": "Ap #614-689 Vehicula Street", "Married": false }
+        ];
+
+        var countries = [
+            { Name: "", Id: 0 },
+            { Name: "United States", Id: 1 },
+            { Name: "Canada", Id: 2 },
+            { Name: "United Kingdom", Id: 3 }
+        ];
+        
+        var data1 = {};
+        
+        $.ajax({
+            url: "../json/schools.json",
+            async: false,
+            dataType: 'json',
+            success: function(data) {
+                data1 = data;
+            }
+        });
+
+        $("#jsGrid").jsGrid({
+            width: "100%",
+            height: "100%",
+
+            inserting: true,
+            filtering: true,
+            editing: true,
+            sorting: true,
+            paging: true,
+            autoload: true,
+            
+            pageSize: 10,
+
+            data: data1,
+
+            fields: [
+                { name: "Name", type: "text", validate: "required" },
+                { name: "County", type: "text" },
+                { name: "Students", type: "number" },
+                { name: "Grades", type: "text"},
+                { type: "control" }
+            ]
+        });
+</script>
+
+</body>
+</html>
+
+
+

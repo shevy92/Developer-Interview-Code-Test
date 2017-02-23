@@ -1,0 +1,14 @@
+body {
+    font-family: sans-serif;
+}
+h1 {
+    text-align: center;
+    color: orangered;
+}
+#header {
+    width: 100%;
+}
+a {
+    color: orangered;
+    text-decoration: none;
+}
